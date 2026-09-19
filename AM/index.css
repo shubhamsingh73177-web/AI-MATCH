@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #128C7E;
+  --color-brand-accent: #25D366;
+  --color-brand-dark: #075E54;
+  --color-brand-light: #dcf8c6;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  --bg-app: #F0F2F5;
+  --bg-sidebar: #FFFFFF;
+  --bg-sidebar-hover: #F5F6F6;
+  --bg-sidebar-active: #EBEBEB;
+  --bg-chat: #EFEAE2;
+  --bg-header: #F0F2F5;
+  --bg-input-bar: #F0F2F5;
+  --bg-input: #FFFFFF;
+  
+  --bubble-user: #D9FDD3;
+  --bubble-ai: #FFFFFF;
+  
+  --text-main: #111B21;
+  --text-muted: #667781;
+  --text-dim: #8696A0;
+  
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-sidebar: #E9EDEF;
+  --shadow-subtle: 0 1px 2px rgba(11, 20, 26, 0.08);
+}
+
+.dark {
+  --bg-app: #111B21;
+  --bg-sidebar: #111B21;
+  --bg-sidebar-hover: #202C33;
+  --bg-sidebar-active: #2A3942;
+  --bg-chat: #0C1317;
+  --bg-header: #202C33;
+  --bg-input-bar: #202C33;
+  --bg-input: #2A3942;
+  
+  --bubble-user: #005C4B;
+  --bubble-ai: #202C33;
+  
+  --text-main: #E9EDEF;
+  --text-muted: #8696A0;
+  --text-dim: #667781;
+  
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-sidebar: #222E35;
+  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* WhatsApp Pattern Chat Wallpaper */
+.chat-wallpaper-light {
+  background-color: #EFEAE2;
+  background-image: radial-gradient(#d1c7b7 0.75px, transparent 0.75px), radial-gradient(#d1c7b7 0.75px, #EFEAE2 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.chat-wallpaper-dark {
+  background-color: #0B141A;
+  background-image: radial-gradient(#1f2c34 1px, transparent 1px), radial-gradient(#1f2c34 1px, #0B141A 1px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(134, 150, 160, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(134, 150, 160, 0.6);
+}
+
+/* Message Bubble Entry Animation */
+@keyframes bubblePop {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-bubble {
+  animation: bubblePop 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle Shimmer for Reasoning/Loading */
+@keyframes subtlePulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-subtle-pulse {
+  animation: subtlePulse 1.8s infinite ease-in-out;
+}
+
+/* Card Hover Elevation */
+.card-hover-effect {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover-effect:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.12);
+}
+.dark .card-hover-effect:hover {
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.4);
+}
